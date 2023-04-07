@@ -30,12 +30,11 @@ function getWord(category, wordIndex) {
 }
 
 function setWord() {
-    let cat = prompt("Enter cat");
-    let ind = Math.floor(Math.random() * jsonWords[cat].length);
-    console.log(jsonWords[cat].length);
-    console.log(jsonWords[cat][ind]);
+    console.log("length of arr: " + jsonWords[cat].length);
+    console.log("word: " + jsonWords[cat][ind]);
     getWord(cat, ind);
 }
+let cat, ind;
 
 function showCategories() {
     const drop = document.getElementById('myDropdown');
@@ -46,6 +45,13 @@ function showCategories() {
     for (i = 0;i < wordCategories.length; i++){
         let a = document.createElement("a");
         a.href = "#";
+        let cat = wordCategories[i];
+        a.addEventListener('click', function() {
+            let ind = Math.floor(Math.random() * jsonWords[cat].length);
+            console.log("Length: " + jsonWords[cat].length);
+            console.log("Word: " + jsonWords[cat][ind]);
+            getWord(cat, ind);
+        });
         a.innerHTML = wordCategories[i];
         list.appendChild(a);
     }
