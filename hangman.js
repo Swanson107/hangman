@@ -3,8 +3,8 @@ function showDropdown() {
 }
 
 let wordCategories = [];
-
 let jsonWords;
+
 fetch('words.json')
   .then(response => {
     if (response.ok) {
@@ -18,22 +18,33 @@ fetch('words.json')
     for(let cat of Object.keys(jsonWords)) {
         wordCategories.push(cat);
     }
-    //console.log(jsonWords); // you can access the JSON data here
-    getWord("desserts", 12); // call getWord() here
   })
   .catch(error => {
     console.log(error);
   });
 
-function getWord(category, wordIndex) {
-  //console.log(jsonWords[category][wordIndex]);
-}
+let word = "";
+let answerBlock = document.querySelector('#answer-block');
 
 function setWord() {
-    console.log("length of arr: " + jsonWords[cat].length);
-    console.log("word: " + jsonWords[cat][ind]);
-    getWord(cat, ind);
+    const letterDrop = document.getElementById('answer-block');
+    while (letterDrop.lastElementChild) {
+        letterDrop.removeChild(letterDrop.lastElementChild);
+    }
+    console.log(word);
+    word = word.toUpperCase()
+    wordArr = Array.from(word);
+    console.log(wordArr);
+    for (i=0;i<word.length;i++){
+        const letterBox = document.createElement('div');
+        letterBox.className = 'letter-box';
+        letterBox.textContent = wordArr[i];
+        answerBlock.appendChild(letterBox);
+
+    }
 }
+
+
 let cat, ind;
 
 function showCategories() {
@@ -50,7 +61,8 @@ function showCategories() {
             let ind = Math.floor(Math.random() * jsonWords[cat].length);
             console.log("Length: " + jsonWords[cat].length);
             console.log("Word: " + jsonWords[cat][ind]);
-            getWord(cat, ind);
+            word = jsonWords[cat][ind];
+            setWord();
         });
         a.innerHTML = wordCategories[i];
         list.appendChild(a);
