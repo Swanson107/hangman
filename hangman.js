@@ -32,11 +32,16 @@ function getWord(category, wordIndex) {
 function setWord() {
     let cat = prompt("Enter cat");
     let ind = Math.floor(Math.random() * jsonWords[cat].length);
-    console.log(jsonWords[cat].length)
+    console.log(jsonWords[cat].length);
+    console.log(jsonWords[cat][ind]);
     getWord(cat, ind);
 }
 
 function showCategories() {
+    const drop = document.getElementById('myDropdown');
+    while (drop.lastElementChild) {
+        drop.removeChild(drop.lastElementChild);
+    }
     let list = document.getElementById('myDropdown');
     for (i = 0;i < wordCategories.length; i++){
         let a = document.createElement("a");
@@ -52,6 +57,10 @@ document.getElementById('dropbtn').addEventListener('click', showCategories);
 
 window.onclick = function(event) {
     if (!event.target.matches('.dropbtn')) {
+        const drop = document.getElementById('myDropdown');
+        while (drop.lastElementChild) {
+            drop.removeChild(drop.lastElementChild);
+        }
         var dropdowns = document.getElementsByClassName("dropdown-content");
         var i;
         for (i = 0; i < dropdowns.length; i++) {
