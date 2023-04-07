@@ -4,7 +4,7 @@ body{
     color: #131212;
     font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
     margin: auto;
-    font-size: 18px;
+    font-size: 16px;
 }
 body {
     display: flex;
@@ -35,27 +35,57 @@ a{color: white; ;}
     justify-content: center;
     align-self: center;
     align-items: center;
-    width: 50%;
+    width: 75%;
+    height: 90%; 
     flex: 1;
     margin: 4rem;
+    border-radius: 15px;
 }
 
 .game-container {
     background-color: #889E81;
     color: #131212;
-    width: 70%;
-    height: 30rem;
+    width: 80%;
+    height: 40rem;
     display: flex;
+    justify-content: start;
     flex-direction: column;
     align-items: center;;
+    border-radius: 15px;
 }
 .game-container p{
     font-weight: 500;
 }
 
+.game {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+    margin-top: 12px;
+}
+
+.man {
+    height: 240px;
+    width: 220px;
+    max-width: 220px;
+    max-height: 240px;
+    background-color: #BAC7A7;
+    border-radius: 25%;
+}
+
 .category{
     position:relative;
     display: inline-block;
+}
+
+.input {
+    border:2px solid white;
+    border-radius: 10px;
+    max-height:400px;
+    max-width: 400px;
+    width: 400px;
+    height: 400px;
 }
 
 .dropbtn {
@@ -103,23 +133,26 @@ a{color: white; ;}
     font-size: 22px;
 }
 
-#welcome {
-    font-size: 22px;
-    margin-top:
-}
-.game {
-    margin-top :2rem;
+#answer-block {
     display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 2rem;
+    gap: 4px;
 }
 
-.man {
-    height: 250px;
-    width: 220px;
-    background-color: #BAC7A7;
+.letter-box {
+    border: 2px solid white;
+    color: black;
+    width: 16px;
+    height: 20px;
 }
+
+.letter-box:hover {
+    background-color: rgba(0,0,0,0.1);
+}
+
+#welcome {
+    font-size: 22px;
+}
+
 
 .footer {
     background-color: #698474;
