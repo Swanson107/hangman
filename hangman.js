@@ -2,6 +2,8 @@ function showDropdown() {
     document.getElementById('myDropdown').classList.toggle("show");
 }
 
+let wordCategories = [];
+
 let jsonWords;
 fetch('words.json')
   .then(response => {
@@ -13,6 +15,9 @@ fetch('words.json')
   })
   .then(data => {
     jsonWords = data;
+    for(let cat of Object.keys(jsonWords)) {
+        wordCategories.push(cat);
+    }
     //console.log(jsonWords); // you can access the JSON data here
     getWord("desserts", 12); // call getWord() here
   })
@@ -21,23 +26,28 @@ fetch('words.json')
   });
 
 function getWord(category, wordIndex) {
-  console.log(jsonWords[category][wordIndex]);
+  //console.log(jsonWords[category][wordIndex]);
 }
 
 function setWord() {
     let cat = prompt("Enter cat");
-    let ind = Math.floor(Math.random() * jsonWords[cat].length + 1);
+    let ind = Math.floor(Math.random() * jsonWords[cat].length);
     console.log(jsonWords[cat].length)
     getWord(cat, ind);
 }
 
-document.getElementById('title').addEventListener('click', setWord)
-
-
-
-function log(str){
-    console.log(str);
+function showCategories() {
+    let list = document.getElementById('myDropdown');
+    for (i = 0;i < wordCategories.length; i++){
+        let a = document.createElement("a");
+        a.href = "#";
+        a.innerHTML = wordCategories[i];
+        list.appendChild(a);
+    }
 }
+
+document.getElementById('title').addEventListener('click', setWord)
+document.getElementById('dropbtn').addEventListener('click', showCategories);
 
 
 window.onclick = function(event) {
