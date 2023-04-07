@@ -26,7 +26,8 @@ function getWord(category, wordIndex) {
 
 function setWord() {
     let cat = prompt("Enter cat");
-    let ind = prompt("Enter ind");
+    let ind = Math.floor(Math.random() * jsonWords[cat].length + 1);
+    console.log(jsonWords[cat].length)
     getWord(cat, ind);
 }
 
