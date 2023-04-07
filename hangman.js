@@ -3,10 +3,7 @@ function showDropdown() {
 }
 
 let jsonWords;
-
-function getWord(category, wordIndex) {
-
-jsonWords = fetch('words.json')
+fetch('words.json')
   .then(response => {
     if (response.ok) {
       return response.json();
@@ -15,22 +12,27 @@ jsonWords = fetch('words.json')
     }
   })
   .then(data => {
-    console.log(data[category][wordIndex]);
-    // You can access individual categories like data.categoryName
+    jsonWords = data;
+    //console.log(jsonWords); // you can access the JSON data here
+    getWord("desserts", 12); // call getWord() here
   })
   .catch(error => {
     console.log(error);
   });
+
+function getWord(category, wordIndex) {
+  console.log(jsonWords[category][wordIndex]);
 }
 
-getWord('desserts', 12);
-
-
-function jsonTest() {
-    for (i=0;i<words.length;i++){
-        console.log("Hello");
-    }
+function setWord() {
+    let cat = prompt("Enter cat");
+    let ind = prompt("Enter ind");
+    getWord(cat, ind);
 }
+
+document.getElementById('title').addEventListener('click', setWord)
+
+
 
 function log(str){
     console.log(str);
