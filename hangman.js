@@ -37,10 +37,13 @@ function setWord() {
     for (i=0;i<word.length;i++){
         const letterBox = document.createElement('div');
         letterBox.className = 'letter-box';
-        letterBox.textContent = wordArr[i];
+        //letterBox.textContent = wordArr[i];
         answerBlock.appendChild(letterBox);
-
     }
+    entryArray = document.getElementsByClassName('letter-box')
+    entryArray = Array.from(entryArray);
+    console.log(entryArray);
+    populateKeyboard();
 }
 
 alphabet = Array.from("qwertyuiopasdfghjklzxcvbnm");
@@ -48,10 +51,25 @@ console.log(alphabet);
 
 function populateKeyboard() {
   const keyboardArea = document.querySelector('.input');
+  while (keyboardArea.lastElementChild) {
+    keyboardArea.removeChild(keyboardArea.lastElementChild);
+  }
   for (i=0;i<26;i++){
     const key = document.createElement('div');
     key.className = 'key';
-    key.textContent = alphabet[i];
+    key.textContent = alphabet[i].toUpperCase();
+    key.addEventListener('click', function(){
+      letter = key.textContent;
+      if (wordArr.includes(letter)){
+        console.log("This letter is in the answer: " + key.textContent);
+        for (i=0;i<wordArr.length;i++){
+          if (wordArr[i] == letter){
+            console.log("Letter Found")
+            entryArray[i].textContent = letter;
+          }
+        }
+      }
+    });
     keyboardArea.appendChild(key);
   }
 }
