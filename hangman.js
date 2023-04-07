@@ -27,9 +27,8 @@ let word = "";
 let answerBlock = document.querySelector('#answer-block');
 
 function setWord() {
-    const letterDrop = document.getElementById('answer-block');
-    while (letterDrop.lastElementChild) {
-        letterDrop.removeChild(letterDrop.lastElementChild);
+    while (answerBlock.lastElementChild) {
+        answerBlock.removeChild(answerBlock.lastElementChild);
     }
     console.log(word);
     word = word.toUpperCase()
@@ -42,6 +41,19 @@ function setWord() {
         answerBlock.appendChild(letterBox);
 
     }
+}
+
+alphabet = Array.from("qwertyuiopasdfghjklzxcvbnm");
+console.log(alphabet);
+
+function populateKeyboard() {
+  const keyboardArea = document.querySelector('.input');
+  for (i=0;i<26;i++){
+    const key = document.createElement('div');
+    key.className = 'key';
+    key.textContent = alphabet[i];
+    keyboardArea.appendChild(key);
+  }
 }
 
 
@@ -69,7 +81,7 @@ function showCategories() {
     }
 }
 
-document.getElementById('title').addEventListener('click', setWord)
+document.getElementById('title').addEventListener('click', populateKeyboard);
 document.getElementById('dropbtn').addEventListener('click', showCategories);
 
 
@@ -89,3 +101,5 @@ window.onclick = function(event) {
         }
       }
 }
+
+
