@@ -1,7 +1,7 @@
 html,
 body{
     background-color : #A3C7D6;
-    color: #131212;
+    color: white;
     font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
     margin: auto;
     font-size: 16px;
@@ -44,7 +44,7 @@ a{color: white; ;}
 
 .game-container {
     background-color: #624F82;
-    color: #131212;
+    color: white;
     width: 80%;
     height: 45rem;
     display: flex;
@@ -76,13 +76,36 @@ a{color: white; ;}
 }
 
 .input {
-    border:2px solid white;
     border-radius: 10px;
     max-height:416px;
-    max-width: 416px;
-    width: 416px;
+    width: 480px;
     height: 416px;
     margin-top: 8px;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap:wrap;
+    font-size: 24px;
+    color: white;
+    gap: 2px;
+}
+
+.key {
+    border: 2px solid white;
+    height: 42px;
+    width: 42px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    user-select: none;
+}
+#blank-key {
+    height: 42px;
+    width: 42px;
+}
+
+.key:hover {
+    background-color: rgba(0,0,0,0.2);
 }
 
 .dropbtn {
@@ -151,7 +174,7 @@ a{color: white; ;}
 }
 
 .letter-box:hover {
-    background-color: rgba(0,0,0,0.1);
+    background-color: rgba(0,0,0,0.2);
 }
 
 #welcome {
