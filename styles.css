@@ -1,7 +1,7 @@
 html,
 body{
-    background-color : darkslategray;
-    color: white;
+    background-color : #BAC7A7;
+    color: #131212;
     font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
     margin: auto;
     font-size: 18px;
@@ -11,20 +11,24 @@ body {
     flex-direction: column;
     min-height: 100vh;
 }
-a{color: white;}
+a{color: #131212;}
 
 
 .header {
-    background-color: darkgray;
+    background-color: #698474;
     display: flex;
     justify-content: start;
+    align-items: center;;
+    max-height: 3.2rem;
 }
 #title {
     margin-left : 120px;
+    font-family: ;
+    font-size: 28px;
 }
 
 .content {
-    background-color: lightcoral;
+    background-color: #698474;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -36,12 +40,21 @@ a{color: white;}
 }
 
 .game-container {
-    background-color: blue;
+    background-color: #889E81;
+    color: #131212;
     width: 70%;
     height: 25rem;
     display: flex;
     flex-direction: column;
     align-items: center;;
+}
+.game-container p{
+    font-weight: 500;
+}
+
+#answer{
+    font-weight:bolder;
+    font-size: 22px;
 }
 
 #welcome {
@@ -63,7 +76,7 @@ a{color: white;}
 }
 
 .footer {
-    background-color: rebeccapurple;
+    background-color: #698474;
 }
 
 .footer p{
