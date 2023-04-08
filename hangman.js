@@ -47,7 +47,6 @@ function setWord() {
     }
     entryArray = document.getElementsByClassName('letter-box')
     entryArray = Array.from(entryArray);
-    //console.log(entryArray);
     populateKeyboard();
 
     let wordArrCopy = wordArr.slice();
@@ -115,6 +114,7 @@ function populateKeyboard() {
 
 
 let cat, ind;
+const catText = document.querySelector('#cat-text');
 
 function showCategories() {
     const drop = document.getElementById('myDropdown');
@@ -131,6 +131,7 @@ function showCategories() {
             console.log("Length: " + jsonWords[cat].length);
             console.log("Word: " + jsonWords[cat][ind]);
             word = jsonWords[cat][ind];
+            catText.textContent = cat;
             setWord();
         });
         a.innerHTML = wordCategories[i];
