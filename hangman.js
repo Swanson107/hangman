@@ -30,16 +30,16 @@ let manImageIndex = 0;
 let answerArr = [];
 
 function setWord() {
+    document.getElementById('welcome').textContent = "Welcome to the game of Hangman";
     answerArr = [];
     manImage.src = `images/man0.png`;
     manImageIndex = 0;
     while (answerBlock.lastElementChild) {
         answerBlock.removeChild(answerBlock.lastElementChild);
     }
-    console.log(word);
     word = word.toUpperCase()
+    console.log("For Cheaters: " + word);
     wordArr = Array.from(word);
-    console.log(wordArr);
     for (i=0;i<word.length;i++){
         const letterBox = document.createElement('div');
         letterBox.className = 'letter-box';
@@ -54,7 +54,6 @@ function setWord() {
     wordArrCopy = wordArrCopy.filter((value, index) => {
         return wordArrCopy.indexOf(value) === index;
     });
-    console.log("copy: " + wordArrCopy)
     newCopyArray = wordArrCopy;
 }
 
@@ -71,17 +70,14 @@ function populateKeyboard() {
     key.addEventListener('click', function(){
       letter = key.textContent;
       if (wordArr.includes(letter)){
-        console.log("This letter is in the answer: " + key.textContent);
         answerArr.push(letter);
-        console.log("answerArr: " + answerArr);
-        console.log("copyArr: " + newCopyArray);
-        console.log("wordArr: " + wordArr);
         for (i=0;i<wordArr.length;i++){
           if (wordArr[i] == letter){
             entryArray[i].textContent = letter;
             key.textContent = '';
             if (answerArr.every(letter => newCopyArray.includes(letter)) && newCopyArray.every(letter => answerArr.includes(letter))) {
               console.log("All Letters Match!");
+              document.getElementById('welcome').textContent = "You win! Select a new category to play again.";
             }
           }
         }
@@ -128,8 +124,6 @@ function showCategories() {
         let cat = wordCategories[i];
         a.addEventListener('click', function() {
             let ind = Math.floor(Math.random() * jsonWords[cat].length);
-            console.log("Length: " + jsonWords[cat].length);
-            console.log("Word: " + jsonWords[cat][ind]);
             word = jsonWords[cat][ind];
             catText.textContent = cat;
             setWord();
