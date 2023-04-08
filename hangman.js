@@ -51,6 +51,7 @@ function setWord() {
     populateKeyboard();
 
     let wordArrCopy = wordArr.slice();
+    wordArrCopy = wordArrCopy.filter(value => value !== ' ');
     wordArrCopy = wordArrCopy.filter((value, index) => {
         return wordArrCopy.indexOf(value) === index;
     });
@@ -80,7 +81,7 @@ function populateKeyboard() {
           if (wordArr[i] == letter){
             entryArray[i].textContent = letter;
             key.textContent = '';
-            if (newCopyArray.every(letter => answerArr.includes(letter))){
+            if (answerArr.every(letter => newCopyArray.includes(letter)) && newCopyArray.every(letter => answerArr.includes(letter))) {
               console.log("All Letters Match!");
             }
           }
