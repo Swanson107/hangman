@@ -334,7 +334,6 @@
         "Grenada",
         "Guatemala",
         "Guinea",
-        "Guinea-Bissau",
         "Guyana",
         "Haiti",
         "Honduras",
@@ -352,8 +351,6 @@
         "Jordan",
         "Kazakhstan",
         "Kenya",
-        "Kiribati",
-        "Kosovo",
         "Kuwait",
         "Kyrgyzstan",
         "Laos",
@@ -455,5 +452,28 @@
         "Yemen",
         "Zambia",
         "Zimbabwe"
+    ],
+
+    "Dog Breeds": [
+        "Labrador Retriever",
+        "German Shepherd",
+        "Golden Retriever",
+        "Bulldog",
+        "Beagle",
+        "Poodle",
+        "Chihuahua",
+        "Siberian Husky",
+        "Dachshund",
+        "Boxer",
+        "Yorkshire Terrier",
+        "Rottweiler",
+        "Shih Tzu",
+        "Doberman Pinscher",
+        "Great Dane",
+        "Border Collie",
+        "Bichon Frise",
+        "Australian Shepherd",
+        "Jack Russell Terrier",
+        "Cavalier King Charles Spaniel"
     ]
 }
