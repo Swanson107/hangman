@@ -84,6 +84,10 @@ function populateKeyboard() {
           for (j=0;j<keys.length;j++) {
             keyboardArea.removeChild(keyboardArea.lastElementChild);
           }
+          const gameOverScreen = document.createElement('div');
+          gameOverScreen.className = 'key-off';
+          gameOverScreen.textContent = 'Game Over! Select a category to play again';
+          keyboardArea.appendChild(gameOverScreen);
 
         }
       }
