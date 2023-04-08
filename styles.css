@@ -1,6 +1,6 @@
 html,
 body{
-    background-color : #A3C7D6;
+    background-color : #635985;
     color: white;
     font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
     margin: auto;
@@ -15,7 +15,7 @@ a{color: white; ;}
 
 
 .header {
-    background-color: #3F3B6C;
+    background-color: #18122B;
     display: flex;
     justify-content: start;
     align-items: center;;
@@ -29,7 +29,7 @@ a{color: white; ;}
 }
 
 .content {
-    background-color: #3F3B6C;
+    background-color: #393053;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -43,7 +43,7 @@ a{color: white; ;}
 }
 
 .game-container {
-    background-color: #624F82;
+    background-color: #443C68;
     color: white;
     width: 80%;
     height: 45rem;
@@ -66,7 +66,7 @@ a{color: white; ;}
     width: 220px;
     max-width: 220px;
     max-height: 240px;
-    background-color: #A3C7D6;
+    background-color: #635985;
     border-radius: 25%;
 }
 
@@ -99,9 +99,16 @@ a{color: white; ;}
     justify-content: center;
     user-select: none;
 }
-#blank-key {
-    height: 42px;
-    width: 42px;
+
+.key-off {
+
+    font-size: 18px;
+    width: 480px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    user-select: none;
+    padding: 24px;
 }
 
 .key:hover {
@@ -183,7 +190,7 @@ a{color: white; ;}
 
 
 .footer {
-    background-color: #3F3B6C;
+    background-color: #18122B;
 }
 
 .footer p{
