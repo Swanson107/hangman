@@ -25,8 +25,12 @@ fetch('words.json')
 
 let word = "";
 let answerBlock = document.querySelector('#answer-block');
+const manImage = document.getElementById('man-image');
+let manImageIndex = 0;
 
 function setWord() {
+    manImage.src = `images/man0.png`;
+    manImageIndex = 0;
     while (answerBlock.lastElementChild) {
         answerBlock.removeChild(answerBlock.lastElementChild);
     }
@@ -49,6 +53,7 @@ function setWord() {
 alphabet = Array.from("qwertyuiopasdfghjklzxcvbnm");
 console.log(alphabet);
 
+
 function populateKeyboard() {
   const keyboardArea = document.querySelector('.input');
   while (keyboardArea.lastElementChild) {
@@ -64,9 +69,22 @@ function populateKeyboard() {
         console.log("This letter is in the answer: " + key.textContent);
         for (i=0;i<wordArr.length;i++){
           if (wordArr[i] == letter){
-            console.log("Letter Found")
             entryArray[i].textContent = letter;
+            key.textContent = '';
           }
+        }
+      } else if (key.textContent !== ''){
+        key.textContent = '';
+        console.log("Letter not in word");
+        manImageIndex += 1;
+        manImage.src = `images/man${manImageIndex}.png`;
+        if (manImageIndex === 6){
+          console.log("Game Over");
+          let keys = Array.from(document.getElementsByClassName('key'));
+          for (j=0;j<keys.length;j++) {
+            keyboardArea.removeChild(keyboardArea.lastElementChild);
+          }
+
         }
       }
     });
