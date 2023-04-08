@@ -40,7 +40,7 @@
         "Beef Tacos",
         "Chicken Fajitas",
         "Beef Enchiladas",
-        "Shepherd's Pie",
+        "Shepherds Pie",
         "Meatballs",
         "Chicken Parmesan",
         "Sausage and Peppers",
@@ -473,7 +473,6 @@
         "Border Collie",
         "Bichon Frise",
         "Australian Shepherd",
-        "Jack Russell Terrier",
-        "Cavalier King Charles Spaniel"
+        "Jack Russell Terrier"
     ]
 }
