@@ -27,8 +27,10 @@ let word = "";
 let answerBlock = document.querySelector('#answer-block');
 const manImage = document.getElementById('man-image');
 let manImageIndex = 0;
+let answerArr = [];
 
 function setWord() {
+    answerArr = [];
     manImage.src = `images/man0.png`;
     manImageIndex = 0;
     while (answerBlock.lastElementChild) {
@@ -41,19 +43,22 @@ function setWord() {
     for (i=0;i<word.length;i++){
         const letterBox = document.createElement('div');
         letterBox.className = 'letter-box';
-        //letterBox.textContent = wordArr[i];
         answerBlock.appendChild(letterBox);
     }
     entryArray = document.getElementsByClassName('letter-box')
     entryArray = Array.from(entryArray);
-    console.log(entryArray);
+    //console.log(entryArray);
     populateKeyboard();
+
+    let wordArrCopy = wordArr.slice();
+    wordArrCopy = wordArrCopy.filter((value, index) => {
+        return wordArrCopy.indexOf(value) === index;
+    });
+    console.log("copy: " + wordArrCopy)
+    newCopyArray = wordArrCopy;
 }
 
 alphabet = Array.from("qwertyuiopasdfghjklzxcvbnm");
-console.log(alphabet);
-
-
 function populateKeyboard() {
   const keyboardArea = document.querySelector('.input');
   while (keyboardArea.lastElementChild) {
@@ -67,10 +72,17 @@ function populateKeyboard() {
       letter = key.textContent;
       if (wordArr.includes(letter)){
         console.log("This letter is in the answer: " + key.textContent);
+        answerArr.push(letter);
+        console.log("answerArr: " + answerArr);
+        console.log("copyArr: " + newCopyArray);
+        console.log("wordArr: " + wordArr);
         for (i=0;i<wordArr.length;i++){
           if (wordArr[i] == letter){
             entryArray[i].textContent = letter;
             key.textContent = '';
+            if (newCopyArray.every(letter => answerArr.includes(letter))){
+              console.log("All Letters Match!");
+            }
           }
         }
       } else if (key.textContent !== ''){
@@ -85,9 +97,13 @@ function populateKeyboard() {
             keyboardArea.removeChild(keyboardArea.lastElementChild);
           }
           const gameOverScreen = document.createElement('div');
+          const playAgain = document.createElement('div');
           gameOverScreen.className = 'key-off';
-          gameOverScreen.textContent = 'Game Over! Select a category to play again';
+          gameOverScreen.textContent = `Game over! Answer: ${word}`;
+          playAgain.className = 'key-off';
+          playAgain.textContent = 'Select a category to play again.';
           keyboardArea.appendChild(gameOverScreen);
+          keyboardArea.appendChild(playAgain);
 
         }
       }
